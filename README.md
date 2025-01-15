@@ -1,2 +1,14 @@
 # SushistarIS
-Repository per il progetto di Ingegneria del Software del gruppo  NC32 a.a. 2024/25
+Repository del progetto realizzato per il corso di Ingegneria del Software a.a. 2024/25
+
+# Partecipanti
+Gruppo NC32
+ - Avino Antonio
+ - Balestriere Paolo
+ - Bisogno Antonio
+ - Coraggio Matteo
+ - 
+* [Avino Antonio](http:github.com/a-avino)
+
+# Documentazione
+La documentazio
