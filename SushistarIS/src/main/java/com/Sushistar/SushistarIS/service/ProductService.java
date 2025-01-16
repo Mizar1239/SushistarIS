@@ -39,7 +39,11 @@ public class ProductService {
         return categoryRepo.findAll();
     }
 
-    public Product addProduct(ProductDTO dto) {
-        return productRepo.save(dto.toProduct());
+    public Product addProduct(ProductDTO dto)
+    {
+        Product p = dto.toProduct();
+        Product result = productRepo.save(p);
+
+        return result;
     }
 }
