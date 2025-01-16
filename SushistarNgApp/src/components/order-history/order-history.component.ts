@@ -9,7 +9,6 @@ import {NgForOf, NgIf} from '@angular/common';
     NgForOf
   ],
   templateUrl: './order-history.component.html',
-  styleUrl: 'order-history.component.css'
 })
 export class OrderHistoryComponent {
   orders = [

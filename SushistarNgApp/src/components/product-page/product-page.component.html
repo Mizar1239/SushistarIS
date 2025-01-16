@@ -1,1 +1,39 @@
-<p>product-page works!</p>
+<app-header></app-header>
+
+<section class="product-page">
+  <div class="product-container">
+    <!-- Immagine del prodotto -->
+    <div class="product-image" *ngIf="product">
+      <img [src]="'img/prodotto/' + product.imgPath" [alt]="product.productName">
+    </div>
+
+    <!-- Dettagli del prodotto -->
+    <div class="product-details" *ngIf="product">
+      <h1>{{ product.productName }}</h1>
+      <p class="description">{{ product.description }}</p>
+      <div class="quantity-container">
+        <p><strong>Quantità:</strong></p>
+        <div class="quantity">
+          <button (click)="decreaseQuantity()">-</button>
+          <span>{{ quantity }}</span>
+          <button (click)="increaseQuantity()">+</button>
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <button class="add-to-cart" (click)="addToCart()">
+          <i class="fas fa-shopping-cart"></i> Aggiungi al carrello
+        </button>
+        <button class="add-to-favorites" (click)="addToFavorites()">
+          <i class="fas fa-heart"></i> Aggiungi ai preferiti
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="!product" class="loading">
+      <p>Caricamento del prodotto...</p>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

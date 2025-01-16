@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../services/user.service';
+import {Component, OnInit} from '@angular/core';
+import {UserService} from '../../services/user.service';
 import {User} from '../../model/user';
 import {UserInfoComponent} from '../user-info/user-info.component';
 import {HeaderComponent} from '../header/header.component';
@@ -10,22 +10,21 @@ import {NgIf} from '@angular/common';
 
 
 @Component({
-  selector: 'app-profile-page',
-  standalone: true,
-  templateUrl: './profile-page.component.html',
-  imports: [
-    UserInfoComponent,
-    HeaderComponent,
-    OrderHistoryComponent,
-    UserMenuComponent,
-    FooterComponent,
-    NgIf
-  ],
-  styleUrls: ['./profile-page.component.css']
+    selector: 'app-profile-page',
+    standalone: true,
+    templateUrl: './profile-page.component.html',
+    imports: [
+        UserInfoComponent,
+        HeaderComponent,
+        OrderHistoryComponent,
+        UserMenuComponent,
+        FooterComponent,
+        NgIf
+    ],
 })
 export class ProfilePageComponent implements OnInit {
-  activeSection: string = 'orders'; // Sezione attiva iniziale
-  userData: User | null = null; // Dati utente
+    activeSection: string = 'orders'; // Sezione attiva iniziale
+    userData: User | null = null; // Dati utente
 
   constructor(private userService: UserService) {}
 
