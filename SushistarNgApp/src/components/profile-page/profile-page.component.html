@@ -1,0 +1,24 @@
+<app-header></app-header>
+<section class="profile-page">
+  <!-- Passa i dati utente al componente UserInfo -->
+  <app-user-info [userData]="userData"></app-user-info>
+
+  <div class="profile-body">
+    <app-user-menu (sectionChange)="onSectionChange($event)"></app-user-menu>
+
+    <div class="content">
+      <!-- I miei ordini -->
+      <ng-container *ngIf="activeSection === 'orders'">
+        <h2>I miei Ordini</h2>
+        <app-order-history></app-order-history>
+      </ng-container>
+
+      <!-- I miei preferiti -->
+      <ng-container *ngIf="activeSection === 'favorites'">
+        <h2>I miei Preferiti</h2>
+        <p>Qui puoi visualizzare i tuoi piatti preferiti.</p>
+      </ng-container>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>
