@@ -1,13 +1,14 @@
 <section class="popular-dishes">
 
-  <div class="dishes-container">
-    <app-dish
-      *ngFor="let dish of dishes"
-      [name]="dish.productName"
-      [description]="dish.description"
-      [price]="dish.price"
-      (addToCart)="addToCart($event)">
-    </app-dish>
+    <div class="dishes-container">
+        <app-dish
+                *ngFor="let dish of dishes"
+                [name]="dish.productName"
+                [description]="dish.description"
+                [image]="'img/prodotto/'+ dish.imgPath"
+                [price]="dish.price"
+                (addToCart)="addToCart($event)">
+        </app-dish>
 
-  </div>
+    </div>
 </section>

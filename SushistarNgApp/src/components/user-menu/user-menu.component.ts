@@ -5,7 +5,6 @@ import {Component, EventEmitter, Output} from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './user-menu.component.html',
-  styleUrl: 'user-menu.component.css'
 })
 export class UserMenuComponent {
   @Output() sectionChange = new EventEmitter<string>(); // Emittente per notificare il cambiamento di sezione

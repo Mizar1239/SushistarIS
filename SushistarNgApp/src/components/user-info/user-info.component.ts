@@ -9,7 +9,6 @@ import {User} from '../../model/user';
     NgIf
   ],
   templateUrl: './user-info.component.html',
-  styleUrl: 'user-info.component.css'
 })
 export class UserInfoComponent {
   @Input() userData: User | null = null;

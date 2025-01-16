@@ -4,9 +4,6 @@
     <i class="fas fa-chevron-down"></i>
   </button>
   <div class="dropdown-content" [class.show]="dropdownOpen">
-    <a href="#">Sushi</a>
-    <a href="#">Ramen</a>
-    <a href="#">Tempura</a>
-    <a href="#">Dessert</a>
+    <a *ngFor="let category of categories" href="#">{{ category.categoryName }}</a>
   </div>
 </div>

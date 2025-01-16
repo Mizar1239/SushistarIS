@@ -1,15 +1,18 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProductCategory} from '../../model/product-category';
 import {CategoryService} from '../../services/category.service';
+import {NgForOf} from '@angular/common';
 
 @Component({
   selector: 'app-dropdown-menu',
   standalone: true,
-  imports: [],
+  imports: [
+    NgForOf
+  ],
   templateUrl: './dropdown-menu.component.html',
   styleUrl: './dropdown-menu.component.css'
 })
-export class DropdownMenuComponent {
+export class DropdownMenuComponent implements OnInit{
   categories: ProductCategory[] = [];
   dropdownOpen = false;
 
