@@ -11,6 +11,8 @@ public class SushistarUser implements Serializable
 {
 	public SushistarUser() {}
 
+	public SushistarUser(Long id){this.id = id;}
+
 	public Long getId() {
 		return id;
 	}
