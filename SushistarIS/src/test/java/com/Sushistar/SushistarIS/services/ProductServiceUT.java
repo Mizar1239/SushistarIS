@@ -33,7 +33,8 @@ public class ProductServiceUT {
         // Arrange
         Product product = new Product();
         product.setProductName("Tonkatsu");
-        when(productRepo.findByProductName("Tonkatsu")).thenReturn(Optional.of(product));
+        when(productRepo.findByProductName("Tonkatsu"))
+                .thenReturn(Optional.of(product));
 
         // Act
         Optional<Product> result = productService.findProductByName("Tonkatsu");
