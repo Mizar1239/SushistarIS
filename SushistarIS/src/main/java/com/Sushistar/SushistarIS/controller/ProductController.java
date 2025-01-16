@@ -2,6 +2,7 @@ package com.Sushistar.SushistarIS.controller;
 
 
 import com.Sushistar.SushistarIS.model.Product;
+import com.Sushistar.SushistarIS.model.ProductCategory;
 import com.Sushistar.SushistarIS.service.ProductService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,5 +31,16 @@ public class ProductController {
     public ResponseEntity<Optional<Product>> getProductByName(@PathVariable("name") String name) {
         Optional<Product> product = productService.findProductByName(name);
         return new ResponseEntity<>(product, HttpStatus.OK);
+    }
+
+    @GetMapping
+    public List<Product> getTopProducts(@RequestParam(defaultValue = "4") int limit) {
+        return productService.getTopProducts(limit);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<ProductCategory>> getAllCategories() {
+        List<ProductCategory> categories = productService.findAllCategories();
+        return new ResponseEntity<>(categories, HttpStatus.OK);
     }
 }

@@ -1,0 +1,20 @@
+<div class="modal-overlay" (click)="closeModal()"></div>
+<div class="modal">
+  <div class="modal-header">
+    <h2>Login</h2>
+    <button class="close-btn" (click)="closeModal()">&times;</button>
+  </div>
+  <div class="modal-body">
+    <form (ngSubmit)="onSubmit()">
+      <label for="email">Email</label>
+      <input type="text" id="email" [(ngModel)]="email" name="email" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" [(ngModel)]="password" name="password" required>
+
+      <div class="error-message" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+      <button type="submit">Login</button>
+    </form>
+  </div>
+</div>
