@@ -1,0 +1,21 @@
+<div class="dish-item">
+  <!-- Immagine del piatto -->
+  <div class="dish-image">
+    <img [src]="image || 'img/dish.png'" [alt]="name">
+  </div>
+
+  <!-- Informazioni sul piatto -->
+  <div class="dish-info">
+    <a [routerLink]="['/product', name]">{{ name }}</a>
+    <p>{{ description }}</p>
+  </div>
+
+  <!-- Footer con prezzo e icone -->
+  <div class="dish-footer">
+    <div class="price">{{ price | currency: 'EUR' }}</div>
+    <div class="icons">
+      <i class="fas fa-heart"></i>
+      <i class="fas fa-shopping-cart" (click)="onAddToCart()"></i>
+    </div>
+  </div>
+</div>

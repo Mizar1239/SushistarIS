@@ -1,0 +1,12 @@
+<div class="dropdown">
+  <button class="dropdown-btn" (click)="toggleDropdown()">
+    Categorie
+    <i class="fas fa-chevron-down"></i>
+  </button>
+  <div class="dropdown-content" [class.show]="dropdownOpen">
+    <a href="#">Sushi</a>
+    <a href="#">Ramen</a>
+    <a href="#">Tempura</a>
+    <a href="#">Dessert</a>
+  </div>
+</div>

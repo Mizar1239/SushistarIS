@@ -1,5 +1,906 @@
-/* css profile page */
+/* You can add global styles to this file, and also import other style files */
+/* Sfondo trasparente della modal */
 
+/*login*/
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+/* Contenitore della modal */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 20;
+}
+
+/* Header della modal */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.modal-header h2 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Corpo della modal */
+.modal-body form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-body label {
+  margin-bottom: 5px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.modal-body input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.modal-body button {
+  padding: 10px;
+  background-color: #ff6f00;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.modal-body button:hover {
+  background-color: #e65c00;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+/*cart-item*/
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-item img {
+  width: 60px;
+  height: 60px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+
+.item-name {
+  font-size: 18px;
+  font-weight: bold;
+  flex: 1;
+  margin-left: 15px;
+  color: #333;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.quantity button {
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+}
+
+.quantity button:hover {
+  background-color: #eaeaea;
+}
+
+.item-price {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.remove-button {
+  background-color: transparent;
+  color: red;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+}
+
+.remove-button:hover {
+  text-decoration: underline;
+}
+
+/*dish*/
+.dish-item {
+  width: 180px;
+  height: 250px;
+  border-radius: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+
+.dish-image {
+  height: 100px;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dish-image img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+
+
+.dish-info {
+  padding: 5px 10px;
+  background-color: #ffffff;
+}
+
+.dish-info a {
+  font-size: 1rem;
+  margin: 5px 0;
+  color: #333;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.dish-info a:hover {
+  color: #ff6f00;
+  text-decoration: underline;
+}
+
+.dish-info p {
+  font-size: 0.8rem;
+  color: #777;
+  margin: 0;
+}
+
+/* Footer con prezzo e icone */
+.dish-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #ffeccc; /* Colore di sfondo arancione chiaro */
+  border-top: 1px solid #ddd;
+}
+
+.price {
+  font-size: 1rem;
+  color: #ff6f00; /* Colore arancione intenso per il prezzo */
+  font-weight: bold;
+}
+
+.icons {
+  display: flex;
+  gap: 10px;
+}
+
+.icons i {
+  font-size: 1.2rem;
+  color: #ff6f00;
+  cursor: pointer;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.icons i:hover {
+  color: #e65c00;
+  transform: scale(1.1);
+}
+
+/*drop down */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%; /* Il dropdown occupa tutta la larghezza disponibile */
+}
+
+/* Bottone del dropdown */
+.dropdown-btn {
+  background-color: #ff6f00;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%; /* Il bottone occupa tutta la larghezza del contenitore */
+}
+
+.dropdown-btn i {
+  transition: transform 0.3s ease;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #ffffff;
+  width: 100%; /* Larghezza uguale al bottone */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 15px;
+  text-decoration: none;
+  display: block;
+  font-size: 1rem; /* Testo grande quanto il bottone */
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Mostra il menu quando aperto */
+.dropdown-content.show {
+  display: block;
+}
+
+/* Ruota la freccia quando il menu è aperto */
+.dropdown-btn i {
+  transform: rotate(0);
+}
+
+.dropdown-content.show + .dropdown-btn i {
+  transform: rotate(180deg); /* Ruota la freccia verso l'alto */
+}
+
+/*footer*/
+footer {
+  background-color: #ff9800; /* Colore di sfondo del footer */
+  padding: 20px 0;
+  color: white;
+  text-align: center;
+  width: 100%;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-links a {
+  margin: 0 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+.footer-social a {
+  margin: 0 10px;
+  font-size: 20px;
+  color: white;
+}
+
+.footer-social a:hover {
+  color: #000; /* Colore di hover delle icone social */
+}
+
+.footer-copy {
+  font-size: 14px;
+}
+
+/*header*/
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #fff;
+  border-bottom: 2px solid #ffcc00; /* Linea gialla sotto l'header */
+  font-family: 'Arial', sans-serif;
+}
+
+.logo {
+  display: flex;
+  align-items: center; /* Allinea verticalmente immagine e testo */
+  gap: 10px; /* Spaziatura tra l'immagine e il testo */
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none; /* Rimuove la sottolineatura dal link */
+  color: inherit; /* Mantiene il colore del testo */
+}
+
+.brand-name {
+  font-size: 1.5rem; /* Dimensione del testo */
+  font-weight: bold;
+}
+
+.menu-h {
+  display: flex;
+  align-items: center;
+}
+
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.menu li {
+  margin-right: 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #ff69b4; /* Rosa */
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+}
+
+.menu ul li a:hover {
+  color: #ff1493; /* Rosa più scuro */
+}
+
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.user-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.user-actions img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.menu a.active {
+  color: #ff6f00; /* Colore per il link attivo */
+}
+
+.menu a:hover {
+  color: #e65c00;
+}
+
+
+@media (max-width: 768px) {
+  .menu ul {
+    display: none; /* Nasconde il menu sui dispositivi più piccoli */
+  }
+
+  .menu.mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .user-actions {
+    gap: 10px;
+  }
+
+  .logo {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/*hero*/
+.hero {
+  display: flex;
+  align-items: center; /* Centra verticalmente il contenuto */
+  justify-content: center; /* Centra orizzontalmente */
+  padding: 50px 20px;
+  position: relative;
+  background-color: #fff;
+}
+
+.hero-content {
+  max-width: 40%;
+  text-align: center; /* Centra il testo */
+}
+
+.hero-images {
+  position: relative;
+  width: 50%;
+  height: 400px; /* Altezza fissa per contenere piatti e macchie */
+  display: flex;
+  justify-content: center; /* Centra i piatti orizzontalmente */
+  align-items: center; /* Centra i piatti verticalmente */
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.hero h1 span {
+  color: #ff9800;
+}
+
+.search-bar {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.search-bar input {
+  padding: 10px;
+  font-size: 1rem;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-bar button {
+  padding: 10px 20px;
+  background-color: #ff9800;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.features {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+}
+
+.features div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  color: #666;
+}
+
+.features i {
+  font-size: 1.5rem;
+  color: #ff9800;
+}
+
+.hero-images {
+  position: relative;
+  width: 50%;
+  height: 400px; /* Altezza fissa per contenere piatti e macchie */
+}
+
+/* Macchie decorative */
+.vector {
+  position: absolute;
+  z-index: 1; /* Sotto ai piatti */
+  opacity: 0.6;
+}
+
+.vector1 {
+  top: 30px;
+  left: 40px;
+  width: 120px;
+}
+
+.vector2 {
+  top: 150px;
+  left: 200px;
+  width: 150px;
+}
+
+.vector3 {
+  top: 250px;
+  left: 80px;
+  width: 130px;
+}
+
+/* Piatti */
+.dish {
+  position: absolute;
+  z-index: 2; /* Sopra le macchie */
+  width: 180px; /* Dimensione uniforme per i piatti */
+}
+
+.dish1 {
+  top: 50px;
+  left: 100px;
+}
+
+.dish2 {
+  top: 150px;
+  left: 250px;
+}
+
+.dish3 {
+  top: 220px;
+  left: 50px;
+}
+
+/*list dishes*/
+.popular-dishes {
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.popular-dishes h2 {
+  font-size: 2.5rem;
+  color: #ff9800;
+  margin-bottom: 30px;
+}
+
+.dishes-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ogni card avrà la stessa larghezza */
+  gap: 20px; /* Spaziatura tra le card */
+  justify-items: center; /* Centra le card nella griglia */
+}
+
+/*menu*/
+.menu-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra orizzontalmente */
+  justify-content: center; /* Centra verticalmente */
+  min-height: 100vh; /* Rende la sezione alta quanto l'intera viewport */
+  text-align: center;
+  padding: 20px;
+}
+
+.menu-images {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.menu-images img {
+  width: 180px; /* Immagini più grandi */
+  height: auto;
+}
+
+.menu-images h1 {
+  font-size: 2.5rem;
+  color: #ff6f00;
+  margin: 0;
+}
+
+p {
+  font-size: 1.1rem;
+  color: #666;
+  margin: 15px 0;
+  max-width: 600px;
+}
+
+.menu-actions {
+  display: flex;
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra orizzontalmente */
+  gap: 20px; /* Spaziatura tra menu e barra di ricerca */
+  width: 100%; /* Larghezza del contenitore */
+  max-width: 800px; /* Limita la larghezza */
+  margin-top: 20px;
+}
+
+app-dropdown-menu {
+  flex: 1;
+  max-width: 200px; /* Larghezza massima del menu a tendina */
+}
+
+app-search-bar {
+  flex: 2;
+}
+
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #ff6f00; /* Colore personalizzato */
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.app-list-dishes-container {
+  display: flex;
+  flex-direction: column; /* Disposizione verticale */
+  align-items: center; /* Centra orizzontalmente */
+  justify-content: center; /* Centra verticalmente */
+  margin: 0 auto; /* Centra il contenitore */
+  width: 80%; /* Larghezza regolabile */
+}
+
+/*order history*/
+.order-history {
+  background-color: #b4e6e0;
+  padding: 20px;
+  border-radius: 10px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.order-history h2 {
+  margin-bottom: 10px;
+  text-align: center;
+  color: #333;
+}
+
+table {
+  width: 100%;
+  max-width: 800px;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px 20px;
+  text-align: center;
+  vertical-align: middle;
+  border-bottom: 1px solid #000;
+}
+
+th {
+  background-color: #d2f1ef;
+  font-weight: bold;
+}
+
+.order-history .order-details {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px;
+  text-align: left;
+}
+
+.order-history .order-details h3 {
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.order-history .order-details ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.order-history .order-details li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  color: #555;
+}
+
+.order-history .order-details li:last-child {
+  border-bottom: none;
+}
+
+.order-history .order-details .item-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-history .order-details .item-details span {
+  font-weight: 600;
+}
+
+.order-history .order-details .item-details .quantity-price {
+  color: #666;
+}
+
+.order-history .order-details .item-details .price {
+  color: #d82e5e;
+  font-weight: 600;
+}
+
+.order-history table tr:hover {
+  cursor: pointer;
+  background-color: #e5f7f2;
+}
+
+.order-history table tr.selected {
+  background-color: #d0e8e6;
+  font-weight: bold;
+}
+
+/*product page*/
+.product-page {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+}
+
+.product-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 50px;
+}
+
+.product-image img {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.product-details {
+  flex: 1;
+  text-align: left;
+}
+
+.product-details h1 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.product-details .description {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+
+.allergens {
+  font-size: 1.1rem;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+.quantity-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity button {
+  width: 40px;
+  height: 40px;
+  font-size: 1.2rem;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.quantity span {
+  font-size: 1.2rem;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.add-to-cart, .add-to-favorites {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Spazio tra icona e testo */
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-to-cart {
+  background-color: #ff6f00;
+  color: white;
+}
+
+.add-to-cart:hover {
+  background-color: #e65c00;
+}
+
+.add-to-favorites {
+  background-color: #ff4d4d;
+  color: white;
+}
+
+.add-to-favorites:hover {
+  background-color: #e60000;
+}
+
+.add-to-cart i, .add-to-favorites i {
+  font-size: 1.2rem; /* Dimensione delle icone */
+}
+
+/*profile page*/
 .profile-page {
   padding: 20px;
   max-width: 1200px;
@@ -72,4 +973,125 @@
 
 .logout-btn:hover {
   background-color: #e65c00;
+}
+
+/*search bar*/
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  width: 100%; /* Adatta la barra alla larghezza del contenitore */
+}
+
+.search-bar input {
+  flex: 1; /* Occupa tutto lo spazio disponibile */
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 30px; /* Bordo arrotondato per un look moderno */
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Leggera ombra per evidenziare */
+  outline: none; /* Rimuove il bordo di focus */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar input:focus {
+  border-color: #ff6f00; /* Colore arancione per il focus */
+  box-shadow: 0 4px 8px rgba(255, 111, 0, 0.3); /* Ombra più pronunciata */
+}
+
+.search-bar button {
+  background-color: #ff6f00;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Leggera ombra */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar button i {
+  font-size: 1.2rem;
+}
+
+.search-bar button:hover {
+  background-color: #e65c00;
+  box-shadow: 0 4px 8px rgba(230, 92, 0, 0.3); /* Effetto hover più evidente */
+}
+
+/*user info*/
+.user-info {
+  text-align: center;
+  margin-bottom: 20px;
+  padding-bottom: 5px; /* Spazio tra il testo e il bordo */
+  border-bottom: 2px solid #ddd; /* Bordo sotto il nome */
+  background-color: #f8f9fa;
+}
+
+.profile-picture img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid #ddd;
+  margin-bottom: 10px;
+}
+
+/*user menu*/
+.user-menu {
+  background-color: #f8e5c3;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.user-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-menu button {
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.user-menu button:hover {
+  background-color: #f2a900;;
+}
+
+.user-menu button.active {
+  background-color: #d82e5e;
+  color: white;
+  border-color: #d82e5e;
+  text-align: center;
+}
+
+.user-menu button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.no-dishes-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh; /* Altezza per centrare verticalmente */
+  text-align: center;
+}
+
+.no-dishes-message {
+  font-size: 18px;
+  color: #ff6347; /* Colore rosso-arancio per risaltare */
 }

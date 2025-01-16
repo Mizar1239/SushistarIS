@@ -1,0 +1,31 @@
+<app-header></app-header>
+
+<section class="menu-header">
+  <div class="menu-images">
+    <img src="img/menu/1.png" alt="Sushi Set 1">
+    <h1>Menù</h1>
+    <img src="img/menu/37.png" alt="Sushi Set 2">
+  </div>
+  <p>Scopri il nostro menù: dai classici sushi roll ai sapori unici dei ramen, con un tocco di dolcezza nei dessert.</p>
+
+  <!-- Barra di ricerca e menu a tendina -->
+  <div class="menu-actions">
+    <app-dropdown-menu></app-dropdown-menu>
+    <app-search-bar (searchEvent)="searchProduct($event)"></app-search-bar>
+  </div>
+</section>
+
+<!-- Lista dei piatti filtrati -->
+<h2>Dishes</h2>
+
+<div *ngIf="filteredDishes.length > 0; else noDishesFound">
+  <app-list-dishes [dishes]="filteredDishes"></app-list-dishes>
+</div>
+
+<ng-template #noDishesFound>
+  <div class="no-dishes-container">
+    <p class="no-dishes-message">Nessun prodotto corrispondente! Ricontrolla il nome.</p>
+  </div>
+</ng-template>
+
+<app-footer></app-footer>

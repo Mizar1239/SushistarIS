@@ -1,0 +1,36 @@
+<header class="header">
+  <div class="logo">
+    <a routerLink="/home" class="logo-link">
+      <img src="img/header/logo.png" alt="Sushi Star Logo" height="50" />
+      <span class="brand-name">Sushi Star</span>
+    </a>
+  </div>
+
+  <div class="menu-h">
+    <!-- Menu accanto alle icone -->
+    <ul class="menu">
+      <li><a routerLink="/menu" routerLinkActive="active">Menù</a></li>
+    </ul>
+
+    <div class="user-actions">
+      <!-- Icona del carrello -->
+      <button
+        class="cart"
+        [routerLink]="isLoggedIn ? '/cart' : null"
+        (click)="showCartWarning($event)">
+        <img src="img/header/shopping-cart.png" alt="Cart Icon" height="512" width="512" />
+      </button>
+
+      <!-- Icona dell'utente -->
+      <button class="user" (click)="openLoginModal()">
+        <img src="img/header/user.png" alt="User Icon" height="512" width="512" />
+      </button>
+    </div>
+  </div>
+
+  <!-- Modal di Login -->
+  <app-login-modal
+    *ngIf="isLoginModalVisible"
+    (close)="closeLoginModal()">
+  </app-login-modal>
+</header>
