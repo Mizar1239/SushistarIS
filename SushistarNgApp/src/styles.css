@@ -1095,3 +1095,103 @@ th {
   font-size: 18px;
   color: #ff6347; /* Colore rosso-arancio per risaltare */
 }
+
+
+
+/* order history css*/
+.order-history {
+  background-color: #b4e6e0;
+  padding: 20px;
+  border-radius: 10px;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.order-history h2 {
+  margin-bottom: 10px;
+  text-align: center;
+  color: #333;
+}
+
+table {
+  width: 100%;
+  max-width: 800px;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px 20px;
+  text-align: center;
+  vertical-align: middle;
+  border-bottom: 1px solid #000;
+}
+
+th {
+  background-color: #d2f1ef;
+  font-weight: bold;
+}
+
+.order-history .order-details {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px;
+  text-align: left;
+}
+
+.order-history .order-details h3 {
+  margin-bottom: 15px;
+  color: #333;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.order-history .order-details ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.order-history .order-details li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  font-size: 14px;
+  color: #555;
+}
+
+.order-history .order-details li:last-child {
+  border-bottom: none;
+}
+
+.order-history .order-details .item-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-history .order-details .item-details span {
+  font-weight: 600;
+}
+
+.order-history .order-details .item-details .quantity-price {
+  color: #666;
+}
+
+.order-history .order-details .item-details .price {
+  color: #d82e5e;
+  font-weight: 600;
+}
+
+.order-history table tr:hover {
+  cursor: pointer;
+  background-color: #e5f7f2;
+}
+
+.order-history table tr.selected {
+  background-color: #d0e8e6;
+  font-weight: bold;
+}
