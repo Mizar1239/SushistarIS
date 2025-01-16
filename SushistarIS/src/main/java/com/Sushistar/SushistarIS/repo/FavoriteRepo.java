@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 public interface FavoriteRepo extends JpaRepository<FavoriteProducts, Long> {
-    Optional<FavoriteProducts> findByProductId(Long productId);
+    // Optional<FavoriteProducts> findByProductId(Long productId);
     FavoriteProducts findByUserId(Long userId);
     Optional<FavoriteProducts> findByUser(SushistarUser user);
 }
