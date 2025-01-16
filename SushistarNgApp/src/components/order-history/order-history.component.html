@@ -1,0 +1,32 @@
+<div class="order-history">
+  <h2>Storico Ordini</h2>
+  <table>
+    <thead>
+    <tr>
+      <th>Numero</th>
+      <th>Totale</th>
+      <th>Articoli</th>
+      <th>Data Acquisto</th>
+      <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let order of orders" (click)="toggleOrderDetails(order)">
+      <td>{{ order.numero }}</td>
+      <td>{{ order.totale }}€</td>
+      <td>{{ order.articoli.length }}</td>
+      <td>{{ order.dataAcquisto }}</td>
+      <td>{{ order.status }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="selectedOrder">
+    <h3>Dettaglio Ordine #{{ selectedOrder.numero }}</h3>
+    <ul>
+      <li *ngFor="let item of selectedOrder.articoli">
+        {{ item.nome }} - {{ item.quantita }} x {{ item.prezzo }}€
+      </li>
+    </ul>
+  </div>
+</div>
