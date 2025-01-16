@@ -73,6 +73,16 @@ public class Product implements Serializable
 
 	private int amount;
 
+	private String imgPath;
+
+	public String getImgPath() {
+		return imgPath;
+	}
+
+	public void setImgPath(String imgPath) {
+		this.imgPath = imgPath;
+	}
+
 	@ManyToOne
 	@JoinColumn(name = "product_category", nullable = false)
 	private ProductCategory category;

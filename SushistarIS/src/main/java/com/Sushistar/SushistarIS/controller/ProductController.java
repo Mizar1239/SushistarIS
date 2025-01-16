@@ -1,6 +1,7 @@
 package com.Sushistar.SushistarIS.controller;
 
 
+import com.Sushistar.SushistarIS.DTO.ProductDTO;
 import com.Sushistar.SushistarIS.model.Product;
 import com.Sushistar.SushistarIS.model.ProductCategory;
 import com.Sushistar.SushistarIS.service.ProductService;
@@ -33,14 +34,20 @@ public class ProductController {
         return new ResponseEntity<>(product, HttpStatus.OK);
     }
 
-    @GetMapping
+    @GetMapping("/topList")
     public List<Product> getTopProducts(@RequestParam(defaultValue = "4") int limit) {
         return productService.getTopProducts(limit);
     }
 
-    @GetMapping
+    @GetMapping("/getCategories")
     public ResponseEntity<List<ProductCategory>> getAllCategories() {
         List<ProductCategory> categories = productService.findAllCategories();
         return new ResponseEntity<>(categories, HttpStatus.OK);
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<Product> addProduct(@RequestBody ProductDTO dto) {
+        Product p = this.productService.addProduct(dto);
+        return new ResponseEntity<>(p, HttpStatus.CREATED);
     }
 }

@@ -1,5 +1,6 @@
 package com.Sushistar.SushistarIS.service;
 
+import com.Sushistar.SushistarIS.DTO.ProductDTO;
 import com.Sushistar.SushistarIS.model.Product;
 import com.Sushistar.SushistarIS.model.ProductCategory;
 import com.Sushistar.SushistarIS.repo.CategoryRepo;
@@ -36,5 +37,9 @@ public class ProductService {
 
     public List<ProductCategory> findAllCategories() {
         return categoryRepo.findAll();
+    }
+
+    public Product addProduct(ProductDTO dto) {
+        return productRepo.save(dto.toProduct());
     }
 }
