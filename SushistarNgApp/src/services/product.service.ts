@@ -22,6 +22,6 @@ export class ProductService {
   }
 
   getTopProducts(limit: number): Observable<Product[]> {
-    return this.http.get<Product[]>(`${this.baseURL}?limit=${limit}`);
+    return this.http.get<Product[]>(`${this.baseURL}/topList`);
   }
 }
