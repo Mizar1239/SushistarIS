@@ -1,0 +1,9 @@
+<div class="user-menu">
+  <button (click)="selectSection('orders')" [class.active]="activeSection === 'orders'">
+    I miei Ordini
+  </button>
+  <button (click)="selectSection('favorites')" [class.active]="activeSection === 'favorites'">
+    I miei Preferiti
+  </button>
+  <button (click)="logout()">Logout</button>
+</div>
