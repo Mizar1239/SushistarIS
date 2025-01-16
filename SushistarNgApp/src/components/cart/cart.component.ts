@@ -1,10 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {Cart, CartItem} from '../../../../../RepositoryTestSushistar/SushistarNgVecchia/src/model/cart';
-import {CartService} from '../../../../../RepositoryTestSushistar/SushistarNgVecchia/src/services/cart.service';
-import {CartItemComponent} from '../../../../../RepositoryTestSushistar/SushistarNgVecchia/src/components/cart-item/cart-item.component';
 import {CurrencyPipe, NgForOf, NgIf} from '@angular/common';
-import {FooterComponent} from '../../../../../RepositoryTestSushistar/SushistarNgVecchia/src/components/footer/footer.component';
-import {HeaderComponent} from '../../../../../RepositoryTestSushistar/SushistarNgVecchia/src/components/header/header.component';
+import {HeaderComponent} from '../header/header.component';
+import {FooterComponent} from '../footer/footer.component';
+import {Cart, CartItem} from '../../model/cart';
+import {CartService} from '../../services/cart.service';
+import {CartItemComponent} from '../cart-item/cart-item.component';
 
 @Component({
   selector: 'app-cart',
@@ -18,7 +18,6 @@ import {HeaderComponent} from '../../../../../RepositoryTestSushistar/SushistarN
     HeaderComponent,
     NgIf
   ],
-  styleUrls: ['../../../../../RepositoryTestSushistar/SushistarNgVecchia/src/components/cart/cart.component.css']
 })
 export class CartComponent implements OnInit {
   cart: Cart = {products: [], total: 0}; // Inizializza il carrello vuoto
