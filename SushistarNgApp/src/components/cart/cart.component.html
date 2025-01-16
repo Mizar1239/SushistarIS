@@ -1,1 +1,29 @@
-<p>cart works!</p>
+<app-header></app-header>
+
+<div class="cart-container">
+
+  <div class="cart-items">
+    <h2>Carrello</h2>
+    <p *ngIf="!cart || cart.products?.length === 0" class="empty-cart-message">
+      Il carrello è vuoto. Aggiungi qualche prodotto per iniziare!
+    </p>
+    <ng-container *ngIf="cart && cart.products?.length > 0">
+      <app-cart-item
+        *ngFor="let item of cart.products"
+        [item]="item"
+        (increase)="increaseQuantity(item)"
+        (decrease)="decreaseQuantity(item)"
+        (remove)="removeItem(item)">
+      </app-cart-item>
+    </ng-container>
+  </div>
+
+  <div class="cart-summary" *ngIf="cart && cart.products?.length > 0">
+    <h3>Riepilogo</h3>
+    <p>Totale: {{ cart.total | currency:'EUR' }}</p>
+    <button class="checkout-button">Checkout</button>
+  </div>
+
+</div>
+
+<app-footer></app-footer>

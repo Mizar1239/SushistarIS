@@ -36,15 +36,25 @@ public class FavoriteService {
 
 
     public FavoriteProducts addToFavorite(Long userId, Product product) {
+        if (userId == null) {
+            throw new IllegalArgumentException("User ID cannot be null");
+        }
+
         FavoriteProducts favoriteProducts = favoriteRepo.findByUser(new SushistarUser(userId)).orElseGet(() -> {
             FavoriteProducts newFavoriteProducts = new FavoriteProducts();
             newFavoriteProducts.setUser(new SushistarUser(userId));
             newFavoriteProducts.setProducts(new ArrayList<>());
             return newFavoriteProducts;
         });
-        favoriteProducts.getProducts().add(product);
+
+        // Evita duplicati
+        if (!favoriteProducts.getProducts().contains(product)) {
+            favoriteProducts.getProducts().add(product);
+        }
+
         return favoriteRepo.save(favoriteProducts);
     }
+
 
 
     public FavoriteProducts removeFromFavorite(Long userId, Product productToRemove) {
