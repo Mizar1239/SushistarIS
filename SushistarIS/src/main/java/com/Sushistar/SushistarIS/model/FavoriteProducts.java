@@ -1,4 +1,4 @@
-package com.Sushistar.SpringDbMockup.SushistarSpringDatabase.model;
+package com.Sushistar.SushistarIS.model;
 
 import jakarta.persistence.*;
 
