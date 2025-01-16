@@ -1,0 +1,10 @@
+<div class="user-info" *ngIf="userData">
+<div class="profile-picture">
+  <img src="img/bussiness-man.png" alt="User Profile">
+</div>
+<h2>Benvenuto! {{ userData.nome }} {{ userData.cognome }}</h2>
+</div>
+
+<div *ngIf="!userData">
+  <p>Caricamento dati utente...</p>
+</div>
