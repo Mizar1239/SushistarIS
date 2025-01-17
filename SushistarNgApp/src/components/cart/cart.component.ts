@@ -34,18 +34,24 @@ export class CartComponent implements OnInit {
     const userId = 1; // Sostituire con l'ID dell'utente dinamico
     this.cartService.getCart(userId).subscribe({
       next: (response) => {
+        console.log(response);
+
+        // Mappare i prodotti dal formato fornito
         this.cart.products = response.products.map((product: any) => ({
           id: product.id || 0, // ID predefinito se mancante
-          name: product.name,
-          price: product.price,
-          quantity: 1, // Imposta la quantità predefinita
-          imageUrl: product.imageUrl || '' // Aggiungi imageUrl per CartItem
+          name: product.productName, // Nome del prodotto
+          price: product.price, // Prezzo del prodotto
+          quantity: 1, // Quantità iniziale predefinita
+          imageUrl: product.imgPath || '' // Percorso immagine (opzionale)
         }));
+
+        // Calcolare il totale
         this.cart.total = this.cart.products.reduce((sum: number, item: {
           price: number;
           quantity: number;
         }) => sum + item.price * item.quantity, 0);
-        this.loading = false;
+
+        this.loading = false; // Disattivare il caricamento
       },
       error: (err) => {
         console.error('Errore nel caricamento del carrello:', err);
@@ -53,6 +59,7 @@ export class CartComponent implements OnInit {
       }
     });
   }
+
 
 
   // Metodo per rimuovere un elemento dal carrello
