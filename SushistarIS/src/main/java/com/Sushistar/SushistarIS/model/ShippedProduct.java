@@ -62,7 +62,7 @@ public class ShippedProduct implements Serializable
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "productName", length = 30, nullable = false)
+	@Column(name = "product_name", length = 30, nullable = false)
 	private String productName;
 
 	@Column(nullable = false)
@@ -72,10 +72,10 @@ public class ShippedProduct implements Serializable
 	private Double price;
 
 	@ManyToOne
-	@JoinColumn(name = "shipmentId", nullable = false)
+	@JoinColumn(name = "shipment_id", nullable = false)
 	private Shipment shipment;
 
 	@ManyToOne
-	@JoinColumn(name = "productId", nullable = false)
+	@JoinColumn(name = "product_id", nullable = false)
 	private Product product;
 }
