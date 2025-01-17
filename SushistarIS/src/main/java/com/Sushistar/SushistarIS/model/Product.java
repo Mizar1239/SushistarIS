@@ -54,7 +54,7 @@ public class Product implements Serializable
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "productName", length = 30, nullable = false)
+	@Column(name = "product_name", length = 30, nullable = false)
 	private String productName;
 
 	@Column(nullable = false)
@@ -86,4 +86,8 @@ public class Product implements Serializable
 	@ManyToOne
 	@JoinColumn(name = "product_category", nullable = false)
 	private ProductCategory category;
+
+    public String getName() {
+		return productName;
+    }
 }
