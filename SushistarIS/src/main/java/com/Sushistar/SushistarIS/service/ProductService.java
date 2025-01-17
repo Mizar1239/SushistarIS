@@ -42,7 +42,10 @@ public class ProductService {
     public Product addProduct(ProductDTO dto)
     {
         Product p = dto.toProduct();
-        Product result = productRepo.save(p);
+
+        Product falso = new Product();
+
+        Product result = productRepo.save(falso);
 
         return result;
     }
