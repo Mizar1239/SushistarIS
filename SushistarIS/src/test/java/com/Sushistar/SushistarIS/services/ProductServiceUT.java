@@ -6,6 +6,7 @@ import com.Sushistar.SushistarIS.repo.ProductRepo;
 import com.Sushistar.SushistarIS.service.ProductService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Optional;
 
@@ -13,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
+@SpringBootTest
 public class ProductServiceUT {
 
     private ProductRepo productRepo;
@@ -21,10 +23,11 @@ public class ProductServiceUT {
 
     @BeforeEach
     void setUp() {
-        // Mock del repository
+        // Mock dei repository
         productRepo = mock(ProductRepo.class);
+        categoryRepo = mock(CategoryRepo.class); // Aggiungi il mock per CategoryRepo
 
-        // Inizializzazione del service con il mock
+        // Inizializzazione del service con i mock
         productService = new ProductService(productRepo, categoryRepo);
     }
 
@@ -46,11 +49,13 @@ public class ProductServiceUT {
 
     @Test
     void testFindProductByName_UC1_02() {
-        when(productRepo.findByProductName("Toncatsu")).thenReturn(null);
+        // Arrange
+        when(productRepo.findByProductName("Toncatsu")).thenReturn(Optional.empty()); // Restituisce Optional vuoto
 
+        // Act
         Optional<Product> result = productService.findProductByName("Toncatsu");
 
-        assertNull(result);
+        // Assert
+        assertFalse(result.isPresent(), "Il prodotto non dovrebbe essere trovato.");
     }
-
 }
