@@ -58,6 +58,7 @@ export class PaymentComponent implements OnInit {
 
   }
 
+
   ngOnInit(): void {
     this.loadCart(); // Carica i dati del carrello
   }

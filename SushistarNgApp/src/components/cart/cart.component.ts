@@ -109,4 +109,5 @@ export class CartComponent implements OnInit {
   checkout(): void {
     this.router.navigate(['/payment']);
   }
+
 }

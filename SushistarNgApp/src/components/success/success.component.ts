@@ -12,6 +12,7 @@ import {HeaderComponent} from '../header/header.component';
   ],
   standalone: true
 })
+
 export class SuccessComponent {
   constructor(private router: Router) {}
 
