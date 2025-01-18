@@ -5,6 +5,7 @@ import {FooterComponent} from '../footer/footer.component';
 import {Cart, CartItem} from '../../model/cart';
 import {CartService} from '../../services/cart.service';
 import {CartItemComponent} from '../cart-item/cart-item.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -23,8 +24,7 @@ export class CartComponent implements OnInit {
   cart: Cart = {products: [], total: 0}; // Inizializza il carrello vuoto
   loading = true;
 
-  constructor(private cartService: CartService) {
-  }
+  constructor(private cartService: CartService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadCart(); // Carica il carrello dal back-end
@@ -105,4 +105,9 @@ export class CartComponent implements OnInit {
     }) => sum + item.price * item.quantity, 0);
     console.log('Carrello aggiornato:', this.cart);
   }
+
+  checkout(): void {
+    this.router.navigate(['/payment']);
+  }
+
 }
