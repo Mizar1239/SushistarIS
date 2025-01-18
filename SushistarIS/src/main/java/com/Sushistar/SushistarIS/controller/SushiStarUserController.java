@@ -1,5 +1,6 @@
 package com.Sushistar.SushistarIS.controller;
 
+import com.Sushistar.SushistarIS.DTO.LoginDTO;
 import com.Sushistar.SushistarIS.DTO.ProductDTO;
 import com.Sushistar.SushistarIS.DTO.UserDTO;
 import com.Sushistar.SushistarIS.model.SushistarUser;
@@ -33,7 +34,7 @@ public class SushiStarUserController {
 * */
 
     @PostMapping("/login")
-    public ResponseEntity<UserDTO> login(@RequestBody UserDTO dto) {
+    public ResponseEntity<UserDTO> login(@RequestBody LoginDTO dto) {
         Optional<SushistarUser> user = userService.login(dto.getEmail(), dto.getPassword());
 
         if (user.isPresent()) {

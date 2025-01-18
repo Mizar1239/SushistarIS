@@ -16,7 +16,7 @@ export class UserMenuComponent {
   }
 
   logout(): void {
-    localStorage.removeItem('email'); // Rimuove l'email dal localStorage
+    sessionStorage.removeItem('email'); // Rimuove l'email dal localStorage
     window.location.href = '/home';
   }
 }
