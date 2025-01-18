@@ -2,6 +2,7 @@ import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Product} from '../model/product';
+import { ProductDTO } from '../DTO/productDTO.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +24,9 @@ export class ProductService {
 
   getTopProducts(limit: number): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.baseURL}/topList`);
+  }
+ 
+  addProduct(dto: ProductDTO) : Observable<Product> {
+	return this.http.post<Product>(`${this.baseURL}/add`, dto);
   }
 }

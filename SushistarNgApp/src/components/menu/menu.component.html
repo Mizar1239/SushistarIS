@@ -1,5 +1,14 @@
 <app-header></app-header>
 
+<div *ngIf="isUserAdmin()" style="margin-top: 20px; margin-left: 10px;">
+	<button class="sushiButton" *ngIf="!isAddProductVisibile" (click)="showAddProductForm()">Add Product</button>
+	<button class="sushiButton closeButton" *ngIf="isAddProductVisibile" (click)="hideAddProductForm()">Close</button>
+	<!-- Modulo di aggiunta prodotti -->
+	<div *ngIf="isAddProductVisibile">
+		<app-product-registration></app-product-registration>
+	</div>
+</div>
+
 <section class="menu-header">
   <div class="menu-images">
     <img src="img/menu/1.png" alt="Sushi Set 1">
@@ -27,5 +36,6 @@
     <p class="no-dishes-message">Nessun prodotto corrispondente! Ricontrolla il nome.</p>
   </div>
 </ng-template>
+
 
 <app-footer></app-footer>

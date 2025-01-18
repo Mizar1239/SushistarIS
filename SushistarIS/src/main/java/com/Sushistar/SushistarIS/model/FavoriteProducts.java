@@ -33,7 +33,7 @@ public class FavoriteProducts implements Serializable {
 	public void setProducts(List<Product> products) {
 		this.products = products;
 	}
-
+	
 	public FavoriteProducts() {}
 
 	public Long getId() {

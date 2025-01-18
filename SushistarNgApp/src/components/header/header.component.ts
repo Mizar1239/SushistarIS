@@ -42,4 +42,8 @@ export class HeaderComponent {
       alert('Devi effettuare il login per accedere al carrello!');
     }
   }
+
+  isUserAdmin() : boolean {
+	return true;
+  }
 }
