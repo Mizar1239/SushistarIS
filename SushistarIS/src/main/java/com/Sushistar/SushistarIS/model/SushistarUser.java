@@ -84,6 +84,7 @@ public class SushistarUser implements Serializable
 	public void setBirthdate(Date birthdate) {
 		this.birthdate = birthdate;
 	}
+	public UserRole getUserRole() { return this.role; }
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

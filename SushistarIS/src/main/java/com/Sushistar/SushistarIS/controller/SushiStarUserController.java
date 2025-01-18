@@ -1,5 +1,7 @@
 package com.Sushistar.SushistarIS.controller;
 
+import com.Sushistar.SushistarIS.DTO.ProductDTO;
+import com.Sushistar.SushistarIS.DTO.UserDTO;
 import com.Sushistar.SushistarIS.model.SushistarUser;
 import com.Sushistar.SushistarIS.service.SushiStarUserService;
 import org.springframework.http.HttpStatus;
@@ -17,14 +19,27 @@ public class SushiStarUserController {
     public SushiStarUserController(SushiStarUserService userService) {
         this.userService = userService;
     }
+/*
+    @PostMapping("/login")
+    public ResponseEntity<UserDTO> login(@RequestParam String username, @RequestParam String password) {
+        Optional<SushistarUser> user = userService.login(username, password);
+
+        if (user.isPresent()) {
+            return new ResponseEntity<>(new UserDTO(user.get().getEmail(), user.get().getUserRole().getId()), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(null, HttpStatus.UNAUTHORIZED);
+        }
+    }
+* */
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestParam String username, @RequestParam String password) {
-        Optional<SushistarUser> user = userService.login(username, password);
+    public ResponseEntity<UserDTO> login(@RequestBody UserDTO dto) {
+        Optional<SushistarUser> user = userService.login(dto.getEmail(), dto.getPassword());
+
         if (user.isPresent()) {
-            return new ResponseEntity<>("Login successful", HttpStatus.OK);
+            return new ResponseEntity<>(new UserDTO(user.get().getEmail(), user.get().getUserRole().getId()), HttpStatus.OK);
         } else {
-            return new ResponseEntity<>("Invalid credentials", HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>(null, HttpStatus.UNAUTHORIZED);
         }
     }
 

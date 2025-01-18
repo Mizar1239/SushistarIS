@@ -36,4 +36,6 @@ INSERT INTO product (product_name, price, description, amount, product_category,
 INSERT INTO product (product_name, price, description, amount, product_category, img_path) VALUES ('Involtini primavera', 13.50, 'Deliziosi involtini primavera', 90, 17, 'involtini_primavera.png');
 
 INSERT INTO user_role (role_tag0) VALUES ('CUSTOMER');
+INSERT INTO user_role (role_tag0) VALUES ('ADMIN');
 INSERT INTO sushistar_user (username, email, password, firstname, lastname, address, phone_number, birthdate, user_role) VALUES ('testuser','testuser@example.com','hashed_password',    'Mario',   'Rossi', 'Via Roma 123, Milano',  '3331234567', '1990-01-15',1);
+INSERT INTO sushistar_user (username, email, password, firstname, lastname, address, phone_number, birthdate, user_role) VALUES ('testAdmin','testAdmin@example.com','hashed_password',    'Furio',   'Terzapi', 'Via Verdi 124, Torino',  '3335558888', '1980-06-22',2);
