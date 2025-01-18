@@ -35,8 +35,8 @@ export class LoginModalComponent {
     this.authService.login(this.email, this.password).subscribe(
       (response: UserDTO) => {
         console.log('Login successful:', response);
-        localStorage.setItem('email', this.email); // Salva il nome utente
-		localStorage.setItem('userRole', this.getUserRole(response.roleId)); // Salva il nome utente
+        sessionStorage.setItem('email', this.email); // Salva il nome utente
+		sessionStorage.setItem('userRole', this.authService.getUserRole(response.roleId)); // Salva il nome utente
         this.closeModal(); // Chiudi la modal
         window.location.href = '/user'; // Redirige alla pagina del profilo utente
       },
@@ -49,19 +49,5 @@ export class LoginModalComponent {
         }
       }
     );
-  }
-
-  getUserRole(roleId: number) : string {
-
-	let role: string = '';
-
-	switch(roleId) {
-		case this.roles.customer: role = 'customer';
-									break;
-		case this.roles.admin: role = 'admin';
-									break;
-	}
-
-	return role;
   }
 }
