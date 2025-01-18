@@ -192,6 +192,7 @@
   font-size: 18px;
   border: none;
   cursor: pointer;
+  width: auto;
 }
 
 .remove-button:hover {
@@ -1510,3 +1511,44 @@ button.sub_payment:hover:not(:disabled) {
   cursor: pointer;
 }
 
+.about-us {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 20px;
+  background-color: #f4f4f4; /* Colore di sfondo leggero */
+}
+
+.about-us-content {
+  max-width: 50%;
+  text-align: left;
+}
+
+.about-us-content h2 {
+  font-size: 2.5rem;
+  color: #ff9800;
+  margin-bottom: 10px;
+}
+
+.about-us-content h3 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.about-us-content p {
+  font-size: 1rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+.about-us-image {
+  max-width: 40%;
+}
+
+.about-us-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}

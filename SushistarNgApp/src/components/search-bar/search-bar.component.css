@@ -1,0 +1,53 @@
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  width: 100%; /* Adatta la barra alla larghezza del contenitore */
+}
+
+.search-bar input {
+  flex: 1; /* Occupa tutto lo spazio disponibile */
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 30px; /* Bordo arrotondato per un look moderno */
+  font-size: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Leggera ombra per evidenziare */
+  outline: none; /* Rimuove il bordo di focus */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar input:focus {
+  border-color: #ff6f00; /* Colore arancione per il focus */
+  box-shadow: 0 4px 8px rgba(255, 111, 0, 0.3); /* Ombra più pronunciata */
+}
+
+.search-bar button {
+  background-color: #ff6f00;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Leggera ombra */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar button i {
+  font-size: 1.2rem;
+}
+
+.search-bar button:hover {
+  background-color: #e65c00;
+  box-shadow: 0 4px 8px rgba(230, 92, 0, 0.3); /* Effetto hover più evidente */
+}
+input[type=text], input[type=time], button {
+  width: auto; /* Imposta la larghezza automatica in base al contenuto */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}

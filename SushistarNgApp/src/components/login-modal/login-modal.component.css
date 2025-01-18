@@ -1,0 +1,89 @@
+/* Sfondo trasparente della modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+}
+
+/* Contenitore della modal */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 20;
+}
+
+/* Header della modal */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.modal-header h2 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Corpo della modal */
+.modal-body form {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-body label {
+  margin-bottom: 5px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.modal-body input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.modal-body button {
+  padding: 10px;
+  background-color: #ff6f00;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.modal-body button:hover {
+  background-color: #e65c00;
+}
+.error-message {
+  color: red;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+input[type=text], input[type=time], button {
+  width: auto; /* Imposta la larghezza automatica in base al contenuto */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
