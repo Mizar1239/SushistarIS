@@ -43,6 +43,20 @@ export class ProductPageComponent implements OnInit{
     );
   }
 
+  loadProductById(id: number): void {
+    this.productService.getProductById(id).subscribe(
+		{
+			next: (data: Product) => {
+				this.product = data;
+				console.log('Dettagli del prodotto:', this.product);
+			},
+			error: (error) => {
+				console.error('Errore nel recupero del prodotto:', error);
+			}
+		}
+    );
+  }
+
   increaseQuantity(): void {
     this.quantity++;
   }

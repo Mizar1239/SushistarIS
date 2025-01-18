@@ -29,7 +29,7 @@ export class MenuComponent {
   allDishes: Product[] = []; // Tutti i piatti caricati dal database
   filteredDishes: Product[] = []; // Piatti filtrati in base alla ricerca o alla categoria
 
-  isAddProductVisibile: boolean = false;
+  isAddProductVisibile: boolean = true;
 
   constructor(private productService: ProductService,
 	private authService: AuthService
@@ -43,7 +43,7 @@ export class MenuComponent {
   loadProducts(): void {
     this.productService.getProducts().subscribe(
       (data) => {
-        // console.log(data)
+        console.log('prodotti:', data)
         this.allDishes = data; // Carica tutti i piatti
         this.filteredDishes = data; // Inizializza i piatti filtrati
       },

@@ -1,56 +1,81 @@
-<div class="modal-body" style="margin-top: 20px; margin-left: 40px;">
-	<form [formGroup]="productForm" (ngSubmit)="submitForm()">
+<div class="" style="margin-top: 20px; margin-left: 40px;">
+	<form class="grid-container" [formGroup]="productForm" (ngSubmit)="submitForm()">
 
-		<div>
-			<div class="form-group">
-				<label for="productName">Product Name: </label>
-				<input type="text" class="form-control" id="productName" formControlName="productName" />
-				<div class="error-message" *ngIf="checkValue('productName')">
-					Name is required.
+
+
+		<div class="form-row">
+			<div class="column">
+				<div class="form-group form-cell">
+					<label class="form-label" for="productName">Nome prodotto: </label>
+					<input type="text" class="form-control form-input" id="productName" formControlName="productName" />
+					<div class="error-message" *ngIf="checkValue('productName')">
+						Inserisci il nome del prodotto.
+					</div>
 				</div>
+
+				<div class="form-group form-cell">
+					<label class="form-label" for="productName">Categoria: </label>
+					<select type="number" class="form-control form-select" id="categoryId" formControlName="categoryId">
+						<option value="" disabled hidden>Select...</option>
+						<option *ngFor="let category of categories" [value]="category.id">
+							{{category.categoryName}}
+						</option>
+					</select>		
+				</div>	
+	
 			</div>
-			<div class="form-group">
-				<label for="price">Price: </label>
-				<input type="number" class="form-control" id="price" formControlName="price" />
-				<div class="error-message" *ngIf="checkValue('price')">
-					Price is required.
+	
+			<div class="column">
+				<div class="form-group form-cell">
+					<label class="form-label" for="price">Prezzo: </label>
+					<input type="number" step=".01" pattern="^\d*(\.\d{0,2})?$" min="0" class="form-control form-input" id="price" formControlName="price" />
+					<div class="error-message" *ngIf="checkValue('price')">
+						{{priceErrorMsg}}
+					</div>
+				</div>
+
+
+				<div class="form-group form-cell">
+					<label class="form-label" for="description">Descrizione: </label><br>
+					<textarea type="text" class="form-control form-textarea" id="description" 
+						formControlName="description" maxlength="500">
+					</textarea>
+					<div class="error-message" *ngIf="checkValue('description')">
+						Inserisci una descrizione del prodotto
+					</div>
 				</div>
 			</div>
 			
-			<div class="form-group">
-				<label for="description">Description: </label>
-				<textarea type="text" class="form-control" id="description" 
-					formControlName="description" maxlength="500">
-				</textarea>
-				<div class="error-message" *ngIf="checkValue('description')">
-					Product description is required.
+			<div class="column">
+				<div class="form-group form-cell">
+					<label class="form-label" for="amount">Quantità: </label>
+					<input type="number" class="form-control form-input" id="amount" formControlName="amount" />
+					<div class="error-message" *ngIf="checkValue('amount')">
+						Inserisci la quantità di prodotto per una porzione.
+					</div>
 				</div>
-			</div>
-		</div>
-	
+				<div class="form-group form-cell">
+					<label class="form-label" for="image">Immagine del prodotto:</label> <br>
+					<input type="file" accept="image/jpeg,image/png" class="form-control form-input" 
+						(change)="onFileSelected($event)" id="image" formControlName="image" 
+						value="Clicca per caricare un'immagine"
+					/>
+					<div *ngIf="checkValue('image')">
+						Please upload an image of the product.
+					</div> <br>
 
+					<div *ngIf="_isImgUp">
+						<h4>Selected image</h4>
+						<img [src]="imgUrl" alt="Image Preview" height="100" width="400"/>
+					</div>				
+				</div>
 	
-		<div class="form-group">
-			<label for="amount">Amount: </label>
-			<input type="number" class="form-control" id="amount" formControlName="amount" />
-			<div class="error-message" *ngIf="checkValue('amount')">
-				Amount is required.
-			</div>
-		</div>
-	
-		<div class="form-group">
-			<label for="productName">Category: </label>
-			<select type="number" class="form-control" id="categoryId" formControlName="categoryId">
-				<option value="" disabled hidden>Select...</option>
-				<option *ngFor="let category of categories" [value]="category.id">
-					{{category.categoryName}}
-				</option>
-			</select>		
+			</div>	
 		</div>
 	
 		<div class="buttonFooter">
-			<button class="closeButton" type="button" (click)="hideForm()">Close</button>
-			<button type="submit" [disabled]="!productForm.valid">Submit</button>
+			<button class="sushiButton closeButton" type="button" (click)="resetForm()">Cancella</button>
+			<button class="sushiButton" type="submit" [disabled]="!productForm.valid">Inserisci</button>
 		</div>
 	</form>
 </div>
