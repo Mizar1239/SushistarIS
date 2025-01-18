@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 @Entity
 @Table(name = "sushistar_user")
@@ -118,4 +119,53 @@ public class SushistarUser implements Serializable
 	@JoinColumn(name = "user_role", nullable = false)
 	private UserRole role;
 
+	String card_number;
+	String cvv;
+	String expirationDate;
+	String cardOwner;
+	String addressConsegna;
+	String cap;
+
+
+	public void setCardNumber(String number) {
+		this.card_number = number;
+	}
+
+	public void setCvv(String cvv) {
+		this.cvv = cvv;
+	}
+
+	public void setExpirationDate(String expirationDate) {
+		this.expirationDate = expirationDate;
+	}
+
+
+	public void setOwnerName(String cardOwner) {
+		this.cardOwner = cardOwner;
+	}
+
+
+	public void setCap(String cap) {
+		this.cap = cap;
+	}
+
+	public String getCap() {
+		return cap;
+	}
+
+	public String getOwnerName() {
+		return cardOwner;
+	}
+
+	public String getExpirationDate() {
+		return expirationDate;
+	}
+
+	public String getCvv() {
+		return cvv;
+	}
+
+	public String getCardNumber() {
+		return card_number;
+	}
 }

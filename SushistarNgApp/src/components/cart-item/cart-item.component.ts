@@ -9,7 +9,6 @@ import {CartItem} from '../../model/cart';
     CurrencyPipe
   ],
   templateUrl: './cart-item.component.html',
-  styleUrl: 'cart-item.component.css'
 })
 export class CartItemComponent {
   @Input() item!: CartItem;

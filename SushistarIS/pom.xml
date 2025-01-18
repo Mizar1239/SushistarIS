@@ -73,6 +73,38 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+
+		<!-- JaCoCo Plugin for Code Coverage -->
+		<plugin>
+			<groupId>org.jacoco</groupId>
+			<artifactId>jacoco-maven-plugin</artifactId>
+			<version>0.8.12</version>
+			<executions>
+				<execution>
+					<id>prepare-agent</id>
+					<phase>initialize</phase>
+					<goals>
+						<goal>prepare-agent</goal>
+					</goals>
+				</execution>
+				<execution>
+					<id>report</id>
+					<phase>post-integration-test</phase>
+					<goals>
+						<goal>report</goal>
+					</goals>
+				</execution>
+			</executions>
+			<configuration>
+				<excludes>
+					<exclude>com/Sushistar/SushistarIS/model/*</exclude>
+					<exclude>com/Sushistar/SushistarIS/DTO/*</exclude>
+					<exclude>com/Sushistar/SushistarIS/repo/*</exclude>
+					<exclude>com/Sushistar/SushistarIS/controller/</exclude>
+				</excludes>
+			</configuration>
+		</plugin>
 		</plugins>
 	</build>
 

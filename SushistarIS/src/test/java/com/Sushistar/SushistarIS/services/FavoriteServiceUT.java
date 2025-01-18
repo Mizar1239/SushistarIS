@@ -10,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -18,6 +19,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
+@SpringBootTest
 public class FavoriteServiceUT {
 
     @Mock
@@ -73,8 +75,6 @@ public class FavoriteServiceUT {
     }
 
 
-
-
     @Test
     public void testAddToFavorite_UserNotAuthenticated() {
         Long userId = null; // Simula un utente non autenticato
@@ -88,9 +88,6 @@ public class FavoriteServiceUT {
         assertEquals("User ID cannot be null", exception.getMessage());
         verify(favoriteRepo, never()).save(any(FavoriteProducts.class));
     }
-
-
-
 
 
     @Test

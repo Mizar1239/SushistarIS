@@ -1,12 +1,12 @@
 <div class="cart-item">
-  <img [src]="item.imageUrl || 'img/dish.png'" alt="{{ item.name }}" class="product-image" />
+  <img [src]="'img/prodotto/'+item.imageUrl || 'img/dish.png'" alt="{{ item.name }}" class="product-image" />
   <div class="item-details">
     <span class="item-name">{{ item.name }}</span>
     <span class="item-price">{{ item.price | currency:'EUR' }}</span>
   </div>
-  <div class="quantity-controls">
+  <div class="quantity-controls-cart">
     <button class="quantity-button" (click)="decrease.emit(item)">-</button>
-    <span class="quantity">{{ item.quantity }}</span>
+    <span class="quantity-cart">{{ item.quantity }}</span>
     <button class="quantity-button" (click)="increase.emit(item)">+</button>
   </div>
   <button class="remove-button" (click)="remove.emit(item)">&#x2715;</button>
