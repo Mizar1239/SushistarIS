@@ -1,0 +1,56 @@
+<div class="modal-body" style="margin-top: 20px; margin-left: 40px;">
+	<form [formGroup]="productForm" (ngSubmit)="submitForm()">
+
+		<div>
+			<div class="form-group">
+				<label for="productName">Product Name: </label>
+				<input type="text" class="form-control" id="productName" formControlName="productName" />
+				<div class="error-message" *ngIf="checkValue('productName')">
+					Name is required.
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="price">Price: </label>
+				<input type="number" class="form-control" id="price" formControlName="price" />
+				<div class="error-message" *ngIf="checkValue('price')">
+					Price is required.
+				</div>
+			</div>
+			
+			<div class="form-group">
+				<label for="description">Description: </label>
+				<textarea type="text" class="form-control" id="description" 
+					formControlName="description" maxlength="500">
+				</textarea>
+				<div class="error-message" *ngIf="checkValue('description')">
+					Product description is required.
+				</div>
+			</div>
+		</div>
+	
+
+	
+		<div class="form-group">
+			<label for="amount">Amount: </label>
+			<input type="number" class="form-control" id="amount" formControlName="amount" />
+			<div class="error-message" *ngIf="checkValue('amount')">
+				Amount is required.
+			</div>
+		</div>
+	
+		<div class="form-group">
+			<label for="productName">Category: </label>
+			<select type="number" class="form-control" id="categoryId" formControlName="categoryId">
+				<option value="" disabled hidden>Select...</option>
+				<option *ngFor="let category of categories" [value]="category.id">
+					{{category.categoryName}}
+				</option>
+			</select>		
+		</div>
+	
+		<div class="buttonFooter">
+			<button class="closeButton" type="button" (click)="hideForm()">Close</button>
+			<button type="submit" [disabled]="!productForm.valid">Submit</button>
+		</div>
+	</form>
+</div>

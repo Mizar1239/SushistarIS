@@ -7,6 +7,8 @@ import {ProductService} from '../../services/product.service';
 import {Product} from '../../model/product';
 import {DropdownMenuComponent} from '../dropdown-menu/dropdown-menu.component';
 import {SearchBarComponent} from '../search-bar/search-bar.component';
+import { ProductRegistrationComponent } from '../product-registration/product-registration.component';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -17,7 +19,8 @@ import {SearchBarComponent} from '../search-bar/search-bar.component';
     ListDishesComponent,
     NgIf,
     DropdownMenuComponent,
-    SearchBarComponent
+    SearchBarComponent,
+	ProductRegistrationComponent
   ],
   templateUrl: './menu.component.html',
   styleUrl: './menu.component.css'
@@ -26,7 +29,11 @@ export class MenuComponent {
   allDishes: Product[] = []; // Tutti i piatti caricati dal database
   filteredDishes: Product[] = []; // Piatti filtrati in base alla ricerca o alla categoria
 
-  constructor(private productService: ProductService) {
+  isAddProductVisibile: boolean = false;
+
+  constructor(private productService: ProductService,
+	private authService: AuthService
+  ) {
   }
 
   ngOnInit(): void {
@@ -36,7 +43,7 @@ export class MenuComponent {
   loadProducts(): void {
     this.productService.getProducts().subscribe(
       (data) => {
-        console.log(data)
+        // console.log(data)
         this.allDishes = data; // Carica tutti i piatti
         this.filteredDishes = data; // Inizializza i piatti filtrati
       },
@@ -54,5 +61,17 @@ export class MenuComponent {
         dish.productName.toLowerCase().includes(searchTerm.toLowerCase())
       ); // Filtra i piatti in base al nome
     }
+  }
+
+  showAddProductForm() : void {
+	this.isAddProductVisibile = true;
+  }
+
+  hideAddProductForm() : void {
+	this.isAddProductVisibile = false;
+  }
+
+  isUserAdmin() : boolean {
+	return this.authService.isAdmin();
   }
 }

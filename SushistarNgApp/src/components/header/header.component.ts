@@ -21,7 +21,7 @@ export class HeaderComponent {
 
   // Getter per verificare se l'utente è loggato
   get isLoggedIn(): boolean {
-    return !!localStorage.getItem('email'); // Controlla se l'email è presente
+    return !!sessionStorage.getItem('email'); // Controlla se l'email è presente
   }
 
   openLoginModal(): void {
@@ -41,5 +41,9 @@ export class HeaderComponent {
       event.preventDefault(); // Previene la navigazione
       alert('Devi effettuare il login per accedere al carrello!');
     }
+  }
+
+  isUserAdmin() : boolean {
+	return true;
   }
 }

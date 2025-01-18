@@ -2,6 +2,7 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import {FormsModule} from '@angular/forms';
 import {NgIf} from '@angular/common';
+import { UserDTO, UserRoleEnum } from '../../DTO/userDTO.model';
 
 @Component({
   selector: 'app-login-modal',
@@ -21,6 +22,8 @@ export class LoginModalComponent {
   password = '';
   errorMessage = '';
 
+	roles = UserRoleEnum;
+
   closeModal() {
     this.close.emit();
   }
@@ -30,9 +33,10 @@ export class LoginModalComponent {
 
   onSubmit() {
     this.authService.login(this.email, this.password).subscribe(
-      (response) => {
+      (response: UserDTO) => {
         console.log('Login successful:', response);
-        localStorage.setItem('email', this.email); // Salva il nome utente
+        sessionStorage.setItem('email', this.email); // Salva il nome utente
+		sessionStorage.setItem('userRole', this.authService.getUserRole(response.roleId)); // Salva il nome utente
         this.closeModal(); // Chiudi la modal
         window.location.href = '/user'; // Redirige alla pagina del profilo utente
       },

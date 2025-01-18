@@ -86,6 +86,55 @@
   font-size: 0.9rem;
 }
 
+/* Register Product styling */
+
+.sushiButton {
+	padding: 10px;
+	background-color: #ff6f00;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	font-size: 1rem;
+	cursor: pointer;
+}
+
+.sushiButton:hover:not([disabled]) {
+	background-color: #e65c00;
+}
+
+.closeButton {
+	background-color: #ccc8c5 !important;
+	color: black !important;
+}
+
+.closeButton:hover {
+	background-color: #b1b1b1 !important;
+}
+
+.modal-body select {
+	padding: 10px;
+	margin-bottom: 15px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	font-size: 1rem;
+}
+
+.modal-body textarea {
+	padding: 10px;
+	margin-bottom: 15px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	font-size: 1rem;
+	width: 300px;
+	height: 100px;
+}
+
+.buttonFooter {
+
+	justify-content: space-between;
+}
+/****************************/
+
 /*cart-item*/
 .cart-item {
   display: flex;
@@ -522,6 +571,16 @@ footer {
   border-radius: 5px;
   cursor: pointer;
   font-size: 1rem;
+}
+
+.add-button {
+	padding: 10px;
+	background-color: #ff6f00;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	font-size: 1rem;
+	cursor: pointer;
 }
 
 .features {

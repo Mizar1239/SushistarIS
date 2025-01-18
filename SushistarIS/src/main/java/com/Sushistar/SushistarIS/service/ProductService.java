@@ -41,9 +41,6 @@ public class ProductService {
 
     public Product addProduct(ProductDTO dto)
     {
-        Product p = dto.toProduct();
-        Product result = productRepo.save(p);
-
-        return result;
+        return productRepo.save(dto.toProduct());
     }
 }

@@ -29,7 +29,7 @@ export class ProfilePageComponent implements OnInit {
   constructor(private userService: UserService) {}
 
   ngOnInit(): void {
-    const email = localStorage.getItem('email'); // Recupera l'email dal localStorage
+    const email = sessionStorage.getItem('email'); // Recupera l'email dal --localStorage-- sessionStorage
     if (email) {
       this.userService.getUserDetails(email).subscribe(
         (data: User) => {
