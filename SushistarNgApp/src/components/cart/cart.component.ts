@@ -41,15 +41,15 @@ export class CartComponent implements OnInit {
           id: product.id || 0, // ID predefinito se mancante
           name: product.productName, // Nome del prodotto
           price: product.price, // Prezzo del prodotto
-          quantity: 1, // Quantità iniziale predefinita
+          quantity: product.quantity || 1, // Usa la quantità già presente nel carrello
           imageUrl: product.imgPath || '' // Percorso immagine (opzionale)
         }));
 
+        // Unire gli oggetti che hanno lo stesso ID (se sono duplicati nel carrello)
+        this.cart.products = this.mergeDuplicateProducts(this.cart.products);
+
         // Calcolare il totale
-        this.cart.total = this.cart.products.reduce((sum: number, item: {
-          price: number;
-          quantity: number;
-        }) => sum + item.price * item.quantity, 0);
+        this.cart.total = this.cart.products.reduce((sum: number, item: { price: number; quantity: number }) => sum + item.price * item.quantity, 0);
 
         this.loading = false; // Disattivare il caricamento
       },
@@ -59,6 +59,20 @@ export class CartComponent implements OnInit {
       }
     });
   }
+
+// Funzione per unire i prodotti duplicati nel carrello
+  mergeDuplicateProducts(products: CartItem[]): CartItem[] {
+    const mergedProducts: { [key: number]: CartItem } = {};
+    products.forEach((product) => {
+      if (mergedProducts[product.id]) {
+        mergedProducts[product.id].quantity += product.quantity; // Somma la quantità
+      } else {
+        mergedProducts[product.id] = product;
+      }
+    });
+    return Object.values(mergedProducts); // Restituisce una lista di prodotti senza duplicati
+  }
+
 
 
 
