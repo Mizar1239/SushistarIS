@@ -16,8 +16,23 @@
       <!-- I miei preferiti -->
       <ng-container *ngIf="activeSection === 'favorites'">
         <h2>I miei Preferiti</h2>
-        <p>Qui puoi visualizzare i tuoi piatti preferiti.</p>
+        <div class="dishes-container">
+          <ng-container *ngIf="favoriteProducts.length > 0; else noFavorites">
+            <app-dish
+              *ngFor="let product of favoriteProducts"
+              [id]="product.id"
+              [name]="product.productName"
+              [description]="product.description"
+              [image]="'img/prodotto/' + product.imgPath"
+              [price]="product.price">
+            </app-dish>
+          </ng-container>
+          <ng-template #noFavorites>
+            <p>Non hai ancora aggiunto alcun prodotto ai preferiti.</p>
+          </ng-template>
+        </div>
       </ng-container>
+
     </div>
   </div>
 </section>

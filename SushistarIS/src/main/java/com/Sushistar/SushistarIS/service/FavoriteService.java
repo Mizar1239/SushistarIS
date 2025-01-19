@@ -56,25 +56,26 @@ public class FavoriteService {
     }
 
 
+    public FavoriteProducts removeFromFavorite(Long userId, Product product) {
+        // Trova i preferiti dell'utente
+        Optional<FavoriteProducts> optionalFavorites = Optional.ofNullable(favoriteRepo.findByUserId(userId));
 
-    public FavoriteProducts removeFromFavorite(Long userId, Product productToRemove) {
+        if (optionalFavorites.isPresent()) {
+            FavoriteProducts favoriteProducts = optionalFavorites.get();
 
-        FavoriteProducts favoriteProducts = favoriteRepo.findByUserId(userId); // Recupera i preferiti dell'utente usando l'userId
-
-        if (favoriteProducts == null) {
-            throw new IllegalArgumentException("Preferiti non trovati per l'utente con ID: " + userId);
+            // Verifica se il prodotto esiste nella lista dei preferiti
+            if (favoriteProducts.getProducts().contains(product)) {
+                favoriteProducts.getProducts().remove(product);
+                return favoriteRepo.save(favoriteProducts); // Salva i preferiti aggiornati
+            } else {
+                throw new IllegalArgumentException(
+                        "Prodotto non trovato nei preferiti dell'utente con ID: " + userId
+                );
+            }
+        } else {
+            throw new IllegalArgumentException("Nessuna lista di preferiti trovata per l'utente con ID: " + userId);
         }
-
-        List<Product> products = favoriteProducts.getProducts(); // Ottieni la lista di prodotti preferiti
-
-        // Rimuovi il prodotto specificato
-        if (!products.remove(productToRemove)) {
-            throw new IllegalArgumentException("Prodotto non trovato nei preferiti dell'utente con ID: " + userId);
-        }
-
-        favoriteProducts.setProducts(products); // Aggiorna la lista di prodotti nei preferiti
-
-        return favoriteRepo.save(favoriteProducts); // Salva i preferiti aggiornati nel repository
     }
+
 
 }

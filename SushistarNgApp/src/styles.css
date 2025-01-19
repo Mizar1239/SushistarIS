@@ -1552,3 +1552,14 @@ button.sub_payment:hover:not(:disabled) {
   height: auto;
   border-radius: 10px;
 }
+.favorites-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.favorites-list app-dish {
+  width: calc(33.333% - 1rem);
+  overflow: hidden;
+}

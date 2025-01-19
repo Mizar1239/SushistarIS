@@ -34,6 +34,10 @@ public class CartController {
 
     @PostMapping("/{userId}/add")
     public ResponseEntity<?> addToCart(@PathVariable Long userId, @RequestBody Product product) {
+        if (product == null || product.getId() == null || product.getId() <= 0) {
+            return ResponseEntity.badRequest().body("Invalid product details provided.");
+        }
+
         try {
             Cart updatedCart = cartService.addToCart(userId, product);
             return ResponseEntity.ok(updatedCart);
@@ -41,6 +45,7 @@ public class CartController {
             return ResponseEntity.status(500).body("Error adding product to cart: " + e.getMessage());
         }
     }
+
 
     @PostMapping("/{userId}/remove")
     public ResponseEntity<?> removeFromCart(@PathVariable Long userId, @RequestBody Product product) {
