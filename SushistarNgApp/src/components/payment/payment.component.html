@@ -1,0 +1,133 @@
+<app-header></app-header>
+
+<div class="payment-container">
+  <h2>Checkout</h2>
+
+  <!-- Form di pagamento -->
+  <form [formGroup]="paymentForm" (ngSubmit)="submitPayment()">
+    <div class="form-group">
+      <label for="cardOwner">Proprietario della carta</label>
+      <input id="cardOwner" type="text" formControlName="cardOwner" placeholder="Inserisci il nome" />
+      <div
+        *ngIf="paymentForm.get('cardOwner')?.invalid && paymentForm.get('cardOwner')?.touched"
+        class="error">
+        Questo campo non può contenere numeri o caratteri speciali, soltanto lettere!
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="cardNumber">Numero della carta</label>
+      <input id="cardNumber" type="text" formControlName="cardNumber" placeholder="Inserisci il numero della carta" />
+      <div
+        *ngIf="paymentForm.get('cardNumber')?.invalid && paymentForm.get('cardNumber')?.touched"
+        class="error">
+        Formato numero di carta non valido.
+      </div>
+    </div>
+
+    <div class="form-group half">
+      <label for="expiry">Data di scadenza (MM/YY)</label>
+      <input
+        id="expiry"
+        type="text"
+        formControlName="expiry"
+        placeholder="MM/YY"
+        (input)="formatExpiry($event)"
+      />
+      <div
+        *ngIf="paymentForm.get('expiry')?.invalid && paymentForm.get('expiry')?.touched"
+        class="error">
+        Inserisci una data valida (MM/YY).
+      </div>
+    </div>
+
+    <div class="form-group half">
+      <label for="cvv">CVV</label>
+      <input id="cvv" type="text" formControlName="cvv" placeholder="CVV" />
+      <div
+        *ngIf="paymentForm.get('cvv')?.invalid && paymentForm.get('cvv')?.touched"
+        class="error">
+        Inserisci un CVV valido (3 cifre).
+      </div>
+    </div>
+
+
+    <!-- Tipo di consegna -->
+    <div class="delivery-type">
+      <label [class.active]="deliveryType === 'pickup'">
+        <input
+          type="radio"
+          name="deliveryType"
+          value="pickup"
+          (change)="onDeliveryTypeChange('pickup')"
+        />
+        Ritiro al ristorante
+      </label>
+      <label [class.active]="deliveryType === 'delivery'">
+        <input
+          type="radio"
+          name="deliveryType"
+          value="delivery"
+          (change)="onDeliveryTypeChange('delivery')"
+        />
+        Consegna a domicilio
+      </label>
+    </div>
+
+
+    <!-- Campo orario per il ritiro al ristorante -->
+    <div *ngIf="deliveryType === 'pickup'" class="pickup-time">
+      <label for="pickupTime">Orario di ritiro</label>
+      <input
+        id="pickupTime"
+        type="time"
+        formControlName="pickupTime"
+        required
+      />
+    </div>
+
+    <div *ngIf="deliveryType === 'delivery'" class="delivery-address">
+      <label for="deliveryAddress">Indirizzo di consegna</label>
+      <input
+        id="deliveryAddress"
+        type="text"
+        formControlName="deliveryAddress"
+        placeholder="Inserisci l'indirizzo completo"
+        required
+      />
+      <br><br>
+      <label for="postalCode">CAP</label>
+      <input
+        id="postalCode"
+        type="text"
+        formControlName="postalCode"
+        placeholder="Inserisci il CAP"
+        required
+      />
+    </div>
+
+    <!-- Riepilogo ordine -->
+    <h3>Riepilogo ordine</h3>
+    <ng-container *ngIf="cart && cart.products?.length > 0">
+      <app-cart-item
+        *ngFor="let item of cart.products"
+        [item]="item"
+        (increase)="increaseQuantity(item)"
+        (decrease)="decreaseQuantity(item)"
+        (remove)="removeItem(item)">
+      </app-cart-item>
+    </ng-container>
+
+    <div class="total">
+      <strong>Totale: {{ cart.total | currency:'EUR' }}</strong>
+    </div>
+
+
+    <!-- Pulsante per il pagamento -->
+    <button class="sub_payment" (click)="success()">Conferma pagamento</button>
+
+  </form>
+</div>
+
+
+<app-footer></app-footer>

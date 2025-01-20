@@ -3,12 +3,13 @@
     <div class="dishes-container">
         <app-dish
                 *ngFor="let dish of dishes"
-				[id]="dish.id"
+                [id]="dish.id"
                 [name]="dish.productName"
                 [description]="dish.description"
                 [image]="'img/prodotto/'+ dish.imgPath"
                 [price]="dish.price"
-                (addToCart)="addToCart($event)">
+                (addToCart)="addToCart($event)"
+                (addToFavorite)="onAddToFavorite(dish.id)">
         </app-dish>
 
     </div>
