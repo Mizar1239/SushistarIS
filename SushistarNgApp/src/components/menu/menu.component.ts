@@ -29,7 +29,7 @@ export class MenuComponent {
   allDishes: Product[] = []; // Tutti i piatti caricati dal database
   filteredDishes: Product[] = []; // Piatti filtrati in base alla ricerca o alla categoria
 
-  isAddProductVisibile: boolean = true;
+  isAddProductVisibile: boolean = false;
 
   constructor(private productService: ProductService,
 	private authService: AuthService

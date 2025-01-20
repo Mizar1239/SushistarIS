@@ -13,6 +13,7 @@ import {CurrencyPipe} from '@angular/common';
   styleUrl: './dish.component.css'
 })
 export class DishComponent {
+	@Input() id: number = 0;
   @Input() name: string = '';
   @Input() description: string = '';
   @Input() image: string = '';

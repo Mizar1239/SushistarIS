@@ -55,17 +55,19 @@
 					</div>
 				</div>
 				<div class="form-group form-cell">
-					<label class="form-label" for="image">Immagine del prodotto:</label> <br>
-					<input type="file" accept="image/jpeg,image/png" class="form-control form-input" 
-						(change)="onFileSelected($event)" id="image" formControlName="image" 
-						value="Clicca per caricare un'immagine"
-					/>
+					<label class="form-label" for="image">Immagine del prodotto</label>
+					<label class="sushiButton" style="width: fit-content; margin-left: 20px;" for="image">
+						Carica una foto...						
+						<input type="file" accept="image/jpeg,image/png" class="form-control form-input" 
+						(change)="onFileSelected($event)" id="image" formControlName="image">
+					</label>
+
 					<div *ngIf="checkValue('image')">
-						Please upload an image of the product.
+						Carica un'immagine rappresentante il prodotto che vuoi inserire
 					</div> <br>
 
 					<div *ngIf="_isImgUp">
-						<h4>Selected image</h4>
+						<h4>{{imgUploadedName}}</h4>
 						<img [src]="imgUrl" alt="Image Preview" height="100" width="400"/>
 					</div>				
 				</div>

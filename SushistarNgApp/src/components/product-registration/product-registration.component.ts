@@ -4,7 +4,7 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../model/product';
 import { ProductDTO } from '../../DTO/productDTO.model';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { CategoryService } from '../../services/category.service';
@@ -40,7 +40,8 @@ export class ProductRegistrationComponent {
 
 	constructor(private formBuilder: FormBuilder,
 		private productService: ProductService,
-		private categoryService: CategoryService
+		private categoryService: CategoryService,
+		private router: Router
 	) {}
 
 	ngOnInit(): void {
@@ -53,11 +54,15 @@ export class ProductRegistrationComponent {
 			image: [null, Validators.required]
 		});
 
+		this.initCategories();
+	}
+
+	initCategories() : void {
 		this.categoryService.getCategories().subscribe(
 			{
 				next: (result: ProductCategory[]) => {
 					this.categories = result;
-					console.log('categorie: ', this.categories);
+					// console.log('categorie: ', this.categories);
 				},
 				error: (error) => console.log(error)
 			}
@@ -74,7 +79,7 @@ export class ProductRegistrationComponent {
 			{
 				next: (result: Product) => {
 					console.log('TUTTO OK', result);
-					
+					this.router.navigate(['/product', result.id]);
 				},
 				error: (error) => console.log('ERROR', error)
 			}

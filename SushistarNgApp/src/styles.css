@@ -133,7 +133,7 @@
 	width: 33%;
 }
 
-ipnut[type="file"] {
+input[type="file"] {
 	display: none;
 }
 
@@ -173,6 +173,7 @@ ipnut[type="file"] {
 
 .buttonFooter {
 	justify-content: space-between;
+	position: relative;
 	float: right;
 }
 /********************************/

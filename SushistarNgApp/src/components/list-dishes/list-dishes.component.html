@@ -3,6 +3,7 @@
     <div class="dishes-container">
         <app-dish
                 *ngFor="let dish of dishes"
+				[id]="dish.id"
                 [name]="dish.productName"
                 [description]="dish.description"
                 [image]="'img/prodotto/'+ dish.imgPath"

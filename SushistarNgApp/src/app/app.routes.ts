@@ -14,7 +14,8 @@ export const routes: Routes = [
   {path: 'menu', component: MenuComponent},
   {path: 'home', component: HomeComponent},
   {path: 'user', component: ProfilePageComponent, canActivate: [AuthGuard]},
-  {path: 'product/:name', component: ProductPageComponent},
+  // {path: 'product/:name', component: ProductPageComponent},
+  {path: 'product/:id', component: ProductPageComponent},
   {path: 'cart', component: CartComponent, canActivate: [AuthGuard],},
   	{
 		path: 'productRegistration',

@@ -25,9 +25,22 @@ export class ProductPageComponent implements OnInit{
   }
 
   ngOnInit(): void {
+		this.getById();
+    };
+  
+
+  getByName() : void {
     const name = this.route.snapshot.paramMap.get('name');
     if (name) {
       this.loadProduct(name);
+    }
+  }
+
+  getById() {
+    const id_string = this.route.snapshot.paramMap.get('id');
+    if (id_string) {
+		let id: number = +id_string;
+    	this.loadProductById(id);
     }
   }
 
