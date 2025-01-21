@@ -14,7 +14,7 @@
   <div class="dish-footer">
     <div class="price">{{ price | currency: 'EUR' }}</div>
     <div class="icons">
-      <i class="fas fa-heart"></i>
+      <i class="fas fa-heart" (click)="onAddToFavorite()"></i>
       <i class="fas fa-shopping-cart" (click)="onAddToCart()"></i>
     </div>
   </div>
