@@ -1,6 +1,7 @@
 package com.Sushistar.SushistarIS.repo;
 
 import com.Sushistar.SushistarIS.model.Product;
+import org.springframework.data.domain.Limit;
 import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -12,4 +13,5 @@ import java.util.Optional;
 public interface ProductRepo extends JpaRepository<Product, Long> {
     Optional<Product> findByid(Long id);
     Optional<Product> findByProductName(String name);
+
 }

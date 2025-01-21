@@ -29,8 +29,14 @@ public class ProductController {
     }
 
     @GetMapping("/find/{name}")
-    public ResponseEntity<Optional<Product>> getProductByName(@PathVariable("name") String name) {
+    public ResponseEntity<Optional<Product>> getProductById(@PathVariable("name") String name) {
         Optional<Product> product = productService.findProductByName(name);
+        return new ResponseEntity<>(product, HttpStatus.OK);
+    }
+
+    @GetMapping("/findId/{id}")
+    public ResponseEntity<Optional<Product>> getProductByName(@PathVariable("id") Long id) {
+        Optional<Product> product = productService.findProductByName(id);
         return new ResponseEntity<>(product, HttpStatus.OK);
     }
 

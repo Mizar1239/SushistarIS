@@ -17,7 +17,8 @@ export const routes: Routes = [
   {path: 'payment', component: PaymentComponent},
   {path: 'success', component: SuccessComponent},
   {path: 'user', component: ProfilePageComponent, canActivate: [AuthGuard]},
-  {path: 'product/:name', component: ProductPageComponent},
+  // {path: 'product/:name', component: ProductPageComponent},
+  {path: 'product/:id', component: ProductPageComponent},
   {path: 'cart', component: CartComponent, canActivate: [AuthGuard],},
 ];
 

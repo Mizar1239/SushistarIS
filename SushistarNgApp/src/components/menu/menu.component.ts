@@ -43,7 +43,7 @@ export class MenuComponent {
   loadProducts(): void {
     this.productService.getProducts().subscribe(
       (data) => {
-        // console.log(data)
+        console.log('prodotti:', data)
         this.allDishes = data; // Carica tutti i piatti
         this.filteredDishes = data; // Inizializza i piatti filtrati
       },

@@ -5,4 +5,5 @@ export interface ProductDTO
 	price: number;
 	amount: number;
 	categoryId: number;
+	imgPath: string;
 }

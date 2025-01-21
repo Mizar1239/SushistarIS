@@ -25,9 +25,22 @@ export class ProductPageComponent implements OnInit{
   }
 
   ngOnInit(): void {
+		this.getById();
+    };
+  
+
+  getByName() : void {
     const name = this.route.snapshot.paramMap.get('name');
     if (name) {
       this.loadProduct(name);
+    }
+  }
+
+  getById() {
+    const id_string = this.route.snapshot.paramMap.get('id');
+    if (id_string) {
+		let id: number = +id_string;
+    	this.loadProductById(id);
     }
   }
 
@@ -40,6 +53,20 @@ export class ProductPageComponent implements OnInit{
       (error) => {
         console.error('Errore nel recupero del prodotto:', error);
       }
+    );
+  }
+
+  loadProductById(id: number): void {
+    this.productService.getProductById(id).subscribe(
+		{
+			next: (data: Product) => {
+				this.product = data;
+				console.log('Dettagli del prodotto:', this.product);
+			},
+			error: (error) => {
+				console.error('Errore nel recupero del prodotto:', error);
+			}
+		}
     );
   }
 

@@ -31,6 +31,10 @@ public class ProductService {
         return productRepo.findByProductName(name);
     }
 
+    public Optional<Product> findProductByName(Long id) {
+        return productRepo.findByid(id);
+    }
+
     public List<Product> getTopProducts(int limit) {
         return productRepo.findAll(PageRequest.of(0, limit)).getContent();
     }

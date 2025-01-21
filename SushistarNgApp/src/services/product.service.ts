@@ -22,6 +22,10 @@ export class ProductService {
     return this.http.get<Product>(`${this.baseURL}/find/${name}`);
   }
 
+  getProductById(id: number): Observable<Product> {
+    return this.http.get<Product>(`${this.baseURL}/findId/${id}`);
+  }
+
   getTopProducts(limit: number): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.baseURL}/topList`);
   }

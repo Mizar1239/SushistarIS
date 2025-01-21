@@ -86,7 +86,11 @@
   font-size: 0.9rem;
 }
 
-/* Register Product styling */
+/********************************/
+/********************************/
+/*** REGISTER PRODUCT STYLING ***/
+/********************************/
+/********************************/
 
 .sushiButton {
 	padding: 10px;
@@ -98,8 +102,13 @@
 	cursor: pointer;
 }
 
-.sushiButton:hover:not([disabled]) {
+.sushiButton:hover {
 	background-color: #e65c00;
+}
+
+.sushiButton:disabled {
+	opacity: 1;
+	background-color: black;
 }
 
 .closeButton {
@@ -111,29 +120,66 @@
 	background-color: #b1b1b1 !important;
 }
 
-.modal-body select {
-	padding: 10px;
-	margin-bottom: 15px;
-	border: 1px solid #ddd;
-	border-radius: 5px;
-	font-size: 1rem;
+.form-label {
+	font-weight: bold;
 }
 
-.modal-body textarea {
+.grid-container {
+	display: grid;
+}
+
+.column {
+	float: left;
+	width: 33%;
+}
+
+input[type="file"] {
+	display: none;
+}
+
+.form-cell {
+	justify-content: space-between;
+	padding-bottom: 40px;
+}
+
+.form-input {
+	padding: 10px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	font-size: 1rem;
+	width: 350px;
+}
+
+.form-select {
 	padding: 10px;
 	margin-bottom: 15px;
 	border: 1px solid #ddd;
 	border-radius: 5px;
 	font-size: 1rem;
-	width: 300px;
-	height: 100px;
+	width: 200px;
+}
+
+.form-textarea {
+	padding: 10px;
+	margin-bottom: 10px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	font-size: 1rem;
+	width: 500px;
+	height: 250px;
 }
 
 .buttonFooter {
-
 	justify-content: space-between;
+	position: relative;
+	float: right;
 }
-/****************************/
+/********************************/
+/********************************/
+/********************************/
+/********************************/
 
 /*cart-item*/
 .cart-item {
