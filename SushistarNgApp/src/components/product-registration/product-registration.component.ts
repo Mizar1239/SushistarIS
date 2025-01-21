@@ -31,7 +31,7 @@ export class ProductRegistrationComponent {
 
 	categories: ProductCategory[] = [];
 
-	priceErrorMsg: string = 'Per favore inserisci il prezzo in un formato corretto: 00.00€'
+	priceErrorMsg: string = 'Per favore inserisci il prezzo in un formato corretto: 123.45€'
 
 	selectedImg: File | null = null;
 	imgUrl: any
@@ -44,11 +44,15 @@ export class ProductRegistrationComponent {
 		private router: Router
 	) {}
 
+	firstChoiceRegex: RegExp = /^\+?\d{0,9}((.)\d{1,2})?$/;
+
+	tryingRegex: RegExp = /^\+?\d+\.?\d{0,2}/;
+
 	ngOnInit(): void {
 		this.productForm = this.formBuilder.group({
 			productName: ['', Validators.required],
 			description: ['', Validators.required],
-			price: ['', [Validators.min(0), Validators.required, Validators.pattern('^\d*(\.\d{0,2})?$')]],
+			price: ['', [Validators.min(0), Validators.required, Validators.pattern(this.tryingRegex)]],
 			amount: ['', [Validators.min(1), Validators.required]],
 			categoryId: ['', Validators.required],
 			image: [null, Validators.required]
@@ -78,7 +82,6 @@ export class ProductRegistrationComponent {
 			.subscribe(
 			{
 				next: (result: Product) => {
-					console.log('TUTTO OK', result);
 					this.router.navigate(['/product', result.id]);
 				},
 				error: (error) => console.log('ERROR', error)
