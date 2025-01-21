@@ -1,12 +1,14 @@
 <app-header></app-header>
 
 <div *ngIf="isUserAdmin()" style="margin-top: 20px; margin-left: 10px;">
-	<button class="sushiButton" *ngIf="!isAddProductVisibile" (click)="showAddProductForm()">Aggiungi prodotto</button>
-	<button class="sushiButton closeButton" *ngIf="isAddProductVisibile" (click)="hideAddProductForm()">Chiudi</button>
-	<!-- Modulo di aggiunta prodotti -->
-	<div *ngIf="isAddProductVisibile">
-		<app-product-registration></app-product-registration>
+	<div class="buttonHeader">
+		<button class="sushiButton" *ngIf="!isAddProductVisibile" (click)="showAddProductForm()">Aggiungi prodotto</button>
+		<button class="sushiButton closeButton" *ngIf="isAddProductVisibile" (click)="hideAddProductForm()">Chiudi</button>
 	</div>
+		<!-- Modulo di aggiunta prodotti -->
+		<div *ngIf="isAddProductVisibile">
+			<app-product-registration></app-product-registration>
+		</div>
 </div>
 
 <section class="menu-header">

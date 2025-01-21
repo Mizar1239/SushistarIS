@@ -100,6 +100,7 @@
 	border-radius: 5px;
 	font-size: 1rem;
 	cursor: pointer;
+	width: 500px;
 }
 
 .sushiButton:hover {
@@ -108,7 +109,8 @@
 
 .sushiButton:disabled {
 	opacity: 1;
-	background-color: black;
+	background-color: #ffb574;
+	cursor: auto;
 }
 
 .closeButton {
@@ -172,9 +174,15 @@ input[type="file"] {
 }
 
 .buttonFooter {
-	justify-content: space-between;
-	position: relative;
-	float: right;
+	display: flex;
+	text-align: center;
+	justify-content: space-around;
+	padding-right: 40px;
+}
+
+.buttonHeader {
+	text-align: right;
+	padding-right: 40px;
 }
 /********************************/
 /********************************/

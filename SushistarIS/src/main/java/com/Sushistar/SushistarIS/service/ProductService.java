@@ -31,7 +31,7 @@ public class ProductService {
         return productRepo.findByProductName(name);
     }
 
-    public Optional<Product> findProductByName(Long id) {
+    public Optional<Product> findProductById(Long id) {
         return productRepo.findByid(id);
     }
 

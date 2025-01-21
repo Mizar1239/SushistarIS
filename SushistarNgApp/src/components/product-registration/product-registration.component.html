@@ -1,8 +1,5 @@
 <div class="" style="margin-top: 20px; margin-left: 40px;">
 	<form class="grid-container" [formGroup]="productForm" (ngSubmit)="submitForm()">
-
-
-
 		<div class="form-row">
 			<div class="column">
 				<div class="form-group form-cell">
@@ -28,7 +25,7 @@
 			<div class="column">
 				<div class="form-group form-cell">
 					<label class="form-label" for="price">Prezzo: </label>
-					<input type="number" step=".01" pattern="^\d*(\.\d{0,2})?$" min="0" class="form-control form-input" id="price" formControlName="price" />
+					<input type="number" step=".01" min="0" class="form-control form-input" id="price" formControlName="price" />
 					<div class="error-message" *ngIf="checkValue('price')">
 						{{priceErrorMsg}}
 					</div>
